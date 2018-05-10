@@ -14,12 +14,13 @@ from pyspark.sql import DataFrameReader
 from pyspark import SparkContext
 from pyspark.sql import SQLContext
 
-
-os.environ["SPARK_HOME"] = "/home/ajadhav/Documents/spark-1.6.0-bin-hadoop2.6"
+#SPARK_PATH = 'Add Spark path'
+#Example - /home/ajadhav/Documents/spark-1.6.0-bin-hadoop2.6
+os.environ["SPARK_HOME"] = SPARK_PATH
 sc= SparkContext()
 sqlContext = SQLContext(sc)
 # Load csv file using Spark-csv in data-frame form
-df = sqlContext.read.load('/media/ajadhav/New Volume/Downloads/iris.csv',format='com.databricks.spark.csv',header='true',inferSchema='true') 
+df = sqlContext.read.load('iris.csv',format='com.databricks.spark.csv',header='true',inferSchema='true') 
 df.first()
 df.printSchema()
 
